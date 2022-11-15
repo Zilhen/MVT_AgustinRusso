@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from datetime import datetime
 from django.template import Template, Context
+from django.template import loader
 
 
 def vista_saludo(request):
@@ -38,7 +39,7 @@ def vista_edad(request, edad):
 
 def vista_plantilla(request):
 
-    archivo = open(r"/Users/agustin/Documents/MVTAgustinRusso/codigo/MVT_AgustinRusso/templates/plantilla_bonita.html")
+    archivo = open("/Users/agustin/Documents/MVTAgustinRusso/codigo/MVT_AgustinRusso/templates/plantilla_bonita.html")
     #archivo = open("./templates/plantilla_bonita.html")
     plantilla = Template(archivo.read())
     archivo.close()
@@ -50,3 +51,36 @@ def vista_plantilla(request):
 
     return HttpResponse(documento)
 
+def vista_listado_alumnos(request):
+
+    #abrimos el archivo
+    archivo = open("/Users/agustin/Documents/MVTAgustinRusso/codigo/MVT_AgustinRusso/templates/listado_alumnos.html")
+
+    #creamos el template
+    plantilla = Template(archivo.read())
+
+    #cerramos archivo
+    archivo.close()
+
+    #creamos diccionario de datos
+    listado_alumnos = ["Leonel Gareis", "Agustin Russo", "Cristian Garcia", "Angelo Pettinari", "Diego Ibarra", "Santiago Ortiz", "Barbara Vivante", "Barbara Pino"]
+    datos = {"tecnologia": "Python", "listado_alumnos": listado_alumnos}
+
+    #creamos el contexto
+    contexto = Context(datos)
+    documento = plantilla.render(contexto)
+
+    return HttpResponse(documento)
+
+
+def vista_listado_alumnos2(rquest):
+
+    listado_alumnos = ["Leonel Gareis", "Agustin Russo", "Cristian Garcia", "Angelo Pettinari", "Diego Ibarra", "Santiago Ortiz", "Barbara Vivante", "Barbara Pino"]
+    datos = {"tecnologia": "Python", "listado_alumnos": listado_alumnos}
+
+
+    plantilla = loader.get_template("listado_alumnos.html")
+    documento = plantilla.render(datos)
+
+
+    return HttpResponse(documento)

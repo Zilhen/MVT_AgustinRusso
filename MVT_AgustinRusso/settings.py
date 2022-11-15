@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'appUNO'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,11 @@ ROOT_URLCONF = 'MVT_AgustinRusso.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+
+
+        'DIRS': ["/Users/agustin/Documents/MVTAgustinRusso/codigo/MVT_AgustinRusso/templates"],
+
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
