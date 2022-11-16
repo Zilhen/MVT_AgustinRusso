@@ -1,12 +1,13 @@
 from django.http import HttpResponse
 from appUNO.models import Curso
-
+from django.shortcuts import render
 
 # Create your views here.
 
 
 def inicio(request):
-    return HttpResponse("Estas en el Inicio")
+    return render(request, "appUNO/index.html")
+
 
 
 def cursos(request):
