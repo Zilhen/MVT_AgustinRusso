@@ -15,9 +15,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from MVT_AgustinRusso.views import vista_saludo, iniciar_sesion, dia_hoy, vista_edad, vista_plantilla, vista_listado_alumnos, vista_listado_alumnos2
-from appUNO.views import listado_cursos
+#from appUNO.views import listado_cursos
 
 
 urlpatterns = [
@@ -28,5 +28,7 @@ urlpatterns = [
     path("calcular-nacimiento/<edad>/", vista_edad),
     path("home/", vista_plantilla),
     path("alumnos/", vista_listado_alumnos2),
-    path("cursos/", listado_cursos)
+    #path("cursos/", listado_cursos)
+    
+    path("coder/", include("appUNO.urls"))
 ]
