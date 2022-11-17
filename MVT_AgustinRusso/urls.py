@@ -22,13 +22,7 @@ from MVT_AgustinRusso.views import vista_saludo, iniciar_sesion, dia_hoy, vista_
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("saludo/", vista_saludo),
-    path("login/", iniciar_sesion),
-    path("hoy/<nombre>/", dia_hoy),
-    path("calcular-nacimiento/<edad>/", vista_edad),
-    path("home/", vista_plantilla),
-    path("alumnos/", vista_listado_alumnos2),
-    #path("cursos/", listado_cursos)
+    
     
     path("coder/", include("appUNO.urls"))
 ]

@@ -9,21 +9,20 @@ def inicio(request):
     return render(request, "appUNO/index.html")
 
 
-
 def cursos(request):
-    return HttpResponse("Estas en el Cursos")
+    return render(request, "appUNO/cursos.html")
 
 
 def estudiantes(request):
-    return HttpResponse("Estas en el Estudiantes")
+    return render(request, "appUNO/estudiantes.html")
 
 
 def profesores(request):
-    return HttpResponse("Estas en el Profesores")
+    return render(request, "appUNO/profesores.html")
 
 
 def entregables(request):
-    return HttpResponse("Estas en el Entregables")
+    return render(request, "appUNO/entregables.html")
 
 
 
